@@ -6,7 +6,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Database\Seeders\{
     RolesSeeder,
-    ReservationStatusSeeder
+    ReservationStatusSeeder,
+    UserSeeder
 };
 class DatabaseSeeder extends Seeder
 {
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RolesSeeder::class,
             ReservationStatusSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
