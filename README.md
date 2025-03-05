@@ -1,66 +1,144 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+[![Proyecto prueba: Coworking Twgroup](https://www.gestionarlogistica.com.ar/img/logo.webp "Proyecto prueba: Coworking Twgroup")](https://www.gestionarlogistica.com.ar/img/logo.webp "Proyecto prueba: Coworking Twgroup")
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+## Proyecto prueba técnica Coworking Twgroup
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Este proyecto Laravel (v10.48.28) es para gestionar la reserva de
+espacios en un coworking. La aplicación debe tener dos tipos de
+usuarios: **administradores** y **clientes**. Los clientes pueden
+registrarse, iniciar sesión, y hacer reservaciones en las salas de
+coworking. Los administradores pueden gestionar las salas y supervisar
+las reservaciones realizadas por los clientes.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Desde este proyecto se manejan las siguientes caracteristicas: 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Como administrador:
+* Autenticación de administrador
+* Gestión de usuarios administradores/clientes
+* Gestión de salas
+* Gestión de reservaciones
+- Como cliente:
+* Autenticación de cliente
+* Registro como cliente
+* Reservar espacios en las salas
+* Visualizar reservaciones realizadas
+* Eliminar reservaciones realizadaz
 
-## Learning Laravel
+### Construido con: 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+[![Laravel][Laravel.com]][Laravel-url]
+[![Bootstrap][Bootstrap.com]][Bootstrap-url]
+[![Laravel-backpack][Laravel-backpack.com]][Laravel-backpack-url]
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<!-- GETTING STARTED -->
+## Comenzar a desarrollar
 
-## Laravel Sponsors
+### Requisitos de instalación
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Este es un listado del stack necesario para desarrollar sobre este proyecto
 
-### Premium Partners
+* PHP 8.1+
+* Composer
+* Mysql 8.1+
+* Web server como apache o nginx
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+ó puedes utilizarlo mediante **Docker** lo cual te ayudará a agilizar el proceso de instalación, a continuación describiré los pasos sin docker y con docker.
 
-## Contributing
+### Instalación sin docker
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+_En este paso conocerás como inicializar el proyecto manualmente sin utilizar docker de una manera rapida y sencilla._
 
-## Code of Conduct
+1. Clona este  repositorio
+   ```sh
+   git clone https://github.com/sabaz120/coworking-admin
+   ```
+2. Copiar el archivo .env.example en .env (Y ajustar tus credenciales de conexión mysql: host, user, password, database)
+	  ```sh
+   cp .env.example .env
+   ```
+3. Instalar los paquetes de composer 
+	   ```sh
+	   composer install
+	   ```
+4. Instalar los paquetes de npm
+	   ```sh
+	   npm install
+	   ```
+5. Compilar el proyecto
+	```sh
+	   npm run build
+	```
+6. Ejecutar migraciones con sus semillas
+	```sh
+	   php artisan migrate --seed
+	```
+7. Generar el APP KEY
+	```sh
+	   php artisan key:generate
+	```
+8. Una vez hecho esto, ya puedes iniciar el servicio
+	```sh
+	   php artisan serve y ingresar al sitio en http://localhost:8000
+	```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Instalación con docker
 
-## Security Vulnerabilities
+_En este paso conocerás como inicializar el proyecto utilizando docker y docker-compose los cuales te ayudarán a levantar el ambiente de una manera rapida y sencilla._
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. Clona este  repositorio
+   ```sh
+   git clone https://github.com/sabaz120/coworking-admin
+   ```
+2. Copiar el archivo .env.example en .env
+	  ```sh
+   cp .env.example .env
+   ```
+3. Levantar el docker con docker compose
+   ```sh
+   docker-compose up -d  
+   ```
+4. Validar que los servicios se esten ejecutando
+   ```sh
+   docker ps
+   ```
+	Deberás ver 3 servicios en docker corriendo nginx_coworking, sql_coworking, api_coworking.
+	
+5. Instalar los paquetes de composer 
+	   ```sh
+	   docker-compose exec api composer install
+	   ```
+6. Instalar los paquetes de npm
+	   ```sh
+	   docker-compose exec api npm install
+	   ```
+7. Compilar el proyecto
+	```sh
+	   docker-compose exec api npm run build
+	```
+8. Ejecutar migraciones con sus semillas
+	```sh
+	   docker-compose exec api php artisan migrate --seed
+	```
+9. Generar el APP KEY
+	```sh
+	   docker-compose exec api php artisan key:generate
+	```
+10. Una vez realizado todo esto, ya deberías poder usar el sitio
+	```sh
+	   http://localhost:8001
+	```
+### Una vez inicializado y configurado el proyecto, se debe ingresar al administrativo y crear las salas que estarán disponibles para reservación
 
-## License
+* Ingresar a la sección administrativa: http://localhost:8000/admin ó http://localhost:8001/admin (si estas usando el docker)
+* Si se ejecutaron las semillas sin problemas, pueden utilizar estas credenciales de admin: admin@twgroup.com y clave 123456
+* Crear las salas que estarán disponibles para reservación
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Una vez creadas las salas, podemos ir a la ruta inicial y registrarnos / iniciar sesión como cliente para realizar reservaciones de salas en el coworking TWGroup.
+
+[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
+[Laravel-url]: https://laravel.com
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+[Laravel-backpack.com]: https://backpackforlaravel.com/presentation/img/backpack/logos/backpack_logo.svg
+[Laravel-backpack-url]: https://backpackforlaravel.com/
